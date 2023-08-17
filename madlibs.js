@@ -51,16 +51,28 @@ getRawStory().then(parseStory).then((processedStory) => {
 
 
 
-// 2. HOTKEYS : JUMPING TO NEXT INPUT WHEN 'ENTER'
+// 2. HOTKEYS : JUMPING TO NEXT INPUT WHEN 'ENTER' :
 document.addEventListener('keydown', event => { // adds an event listener to the whole document, waiting for a key to be pressed(works with input, textarea nad summary)
-  if (event.key === 'Enter' && event.target.classList.contains('madLibInput')) { // 2 conditions : the key pressed is enter and the class of the element has the class : madLibInput
+  if (event.key === 'Enter' && event.target.classList.contains('madLibsInput')) { // 2 conditions : the key pressed is enter and the class of the element has the class : madLibInput
     const currentIndex = parseInt(event.target.getAttribute('data-index'));  // takes the 'data-index' attribute from the input that called the event(where we are typing) and using parseInt it transforms into a string
     const nextInput = document.querySelector(`[data-index="${currentIndex + 1}"]`); // it searches fot the input in the next position 
     if (nextInput) {
       nextInput.focus(); //if the next input exists(we are not in the last input), it focuses on it.
     }
-  }
+  }``
 });
 /* The Document method querySelector() 
 returns the first Element within the document that matches the
- specified selector, or group of selectors. If no matches are found, null is returned. */
+ specified selector, or group of selectors. If no matches are found, null is returned. */   
+
+
+ // 3. THE 'CLEAR; BUTTON :
+
+ const clearButton = document.getElementById('clearInputs');  // calling the element with the id 'clearInputs' and storing what it returns in the new declared variable 'clearButton'
+document.addEventListener('click' , () => {  //  Adding an event listener that applies changes when 'clicking' on something
+      const inputs = document.querySelectorAll('madLibsInput') // finding all the elements with the class 'madlibInput' (because they are the one that we want to clear), and assigning them to the new variable 'inputs'
+      inputs.forEach(input => {
+        input.value = '';        // each input gets the new value '' (empty)
+        // place to call the function that would match the value in the 2nd text box
+      })
+})
