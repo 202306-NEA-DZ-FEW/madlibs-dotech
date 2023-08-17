@@ -27,6 +27,35 @@
  * Please go through this lesson: https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/regular-expressions/
  */
 function parseStory(rawStory) {
+  const parsedStory = JSON.stringify(rawStory).split(" ");
+  const rex = /[.]/gi;
+  const processedStory= parsedStory.map((word)=>{
+    return ` {word : "${word}"} `
+  })
+  const processedStorypos=parsedStory.map((word)=>{
+    const testNoun =new RegExp(/[n]$/);
+    const testVerb =/"[v]"$/;
+    const testAdj =/"[a]"$/;
+     return word.match(testNoun)
+                             
+  })
+
+  const procesksedStoryPos = processedStorypos.map((word)=>{
+
+
+   })
+   const testNoun =(/[n]$/)
+   const testVerb =/"[v]"$/;
+   const testAdj =/"[a]"$/;
+   const matches = processedStorypos.filter((word) => testNoun.test(word));
+
+  
+//processedStorypos();
+  console.log(parsedStory)
+  console.log(processedStory)
+  console.log(processedStorypos)
+  console.log(matches)
+
   // Your code here.
   return {}; // This line is currently wrong :)
 }
