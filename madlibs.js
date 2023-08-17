@@ -47,8 +47,12 @@ function parseStory(rawStory) {
     } else {
       wordsArr.push(` {word : "${word}"} `) ;
     }
-    console.log(wordsArr)     
-  })
+  return wordsArr
+  }
+
+  )
+  console.log(processedStory)
+
   const processedStorypos=parsedStory.map((word)=>{
     const testNoun =new RegExp(/[n]$/);
     const testVerb =/"[v]"$/;
