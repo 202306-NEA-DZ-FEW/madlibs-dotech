@@ -27,10 +27,27 @@
  * Please go through this lesson: https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/regular-expressions/
  */
 function parseStory(rawStory) {
-  const parsedStory = JSON.stringify(rawStory).split(" ");
-  const rex = /[.]/gi;
+  const parsedStory = rawStory.split(" ");
   const processedStory= parsedStory.map((word)=>{
-    return ` {word : "${word}"} `
+    //const nounRex =/\[.]/g;
+    //const verbRex =/\[.]/g;
+    //const adjRex =/\[.]/g;
+    const rex = /\[.]/g;
+   // let posRe = rawStory.match(nounRex);
+    //console.log(posRe)
+   // const wordOnly = word.replace(word.match(rex), "")
+   // console.log(wordOnly)
+    let wordsArr=[];
+    if (word.match(rex) == "[n]") {
+      wordsArr.push(` {word : "${word}, pos: "noun"} `) ;
+    } else if(word.match(rex) == "[v]"){
+      wordsArr.push(` {word : "${word}, pos: "verb"} `) ;
+    } else if(word.match(rex) == "[a]") {
+      wordsArr.push(` {word : "${word}, pos: "adjective"} `) ;
+    } else {
+      wordsArr.push(` {word : "${word}"} `) ;
+    }
+    console.log(wordsArr)     
   })
   const processedStorypos=parsedStory.map((word)=>{
     const testNoun =new RegExp(/[n]$/);
