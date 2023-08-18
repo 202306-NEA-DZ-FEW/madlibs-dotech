@@ -68,6 +68,7 @@ getRawStory()
       if (w.pos) {
         element = document.createElement("input");
         element.setAttribute("placeholder", w.pos);
+        element.id="input"
         elementPreview = document.createElement("p");
         elementPreview.id ="elementPreview";
         elementPreview.style.display = "inline"
