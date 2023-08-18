@@ -71,7 +71,7 @@ getRawStory()
         elementPreview = document.createElement("p");
         elementPreview.id ="elementPreview";
         elementPreview.style.display = "inline"
-        elementPreview.textContent = w.pos + " ";
+        elementPreview.textContent = `(${ w.pos}) `;
         element.addEventListener("keypress",function(){
           element.onkeyup = element.onkeypress = function(){
             elementPreview.innerHTML = element.value + " ";
@@ -87,7 +87,7 @@ getRawStory()
       elementPreview = document.createElement("p");
       elementPreview.id ="elementPreview";
       elementPreview.style.display = "inline"
-      elementPreview.textContent = w.word + " ";
+      elementPreview.textContent = (w.word) + " ";
       }
       madLibsEdit.appendChild(element);
       madLibsPreview.appendChild(elementPreview)
