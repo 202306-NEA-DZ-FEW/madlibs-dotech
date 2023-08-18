@@ -93,7 +93,7 @@ document.addEventListener('keydown', event => { // adds an event listener to the
       nextInput.focus(); //if the next input exists(we are not in the last input), it focuses on it.
     }
   }``
-});
+});    
 /* The Document method querySelector() 
 returns the first Element within the document that matches the
  specified selector, or group of selectors. If no matches are found, null is returned. */   
