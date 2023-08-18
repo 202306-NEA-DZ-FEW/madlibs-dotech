@@ -1,1 +1,1 @@
-Louis[n] went[v] to the store[n], and it was fun[a]. He taught[v] the class[n]
+Louis[Noun] went[Verb] to the store[Noun], and it was fun[Adjective]. He taught[Verb] the class[Noun]

@@ -1,92 +1,88 @@
-/**
- * Complete the implementation of parseStory.
- * 
- * parseStory retrieves the story as a single string from story.txt
- * (I have written this part for you).
- * 
- * In your code, you are required (please read this carefully):
- * - to return a list of objects
- * - each object should definitely have a field, `word`
- * - each object should maybe have a field, `pos` (part of speech)
- * 
- * So for example, the return value of this for the example story.txt
- * will be an object that looks like so (note the comma! periods should
- * be handled in the same way).
- * 
- * Input: "Louis[n] went[v] to the store[n], and it was fun[a]."
- * Output: [
- *  { word: "Louis", pos: "noun" },
- *  { word: "went", pos: "verb", },
- *  { word: "to", },
- *  { word: "the", },
- *  { word: "store", pos: "noun" }
- *  { word: "," }
- *  ....
- * 
- * There are multiple ways to do this, but you may want to use regular expressions.
- * Please go through this lesson: https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/regular-expressions/
- */
+// RE:Codede 202306-NEA-DZ-FEW BootCamp
+// First Group Project: MadLib
+// Theme : Mad Hatter Birthday Party (Inspired From Alice in Wonderland)
+// Team Memeber :
+// Hachem Bouhahdede
+// Zohir kioukiou
+// Halla
+// Youssaf Sergama
+// Katia Ghazali
+// Mounia Belkhir
+
+//Inial Form Story
 function parseStory(rawStory) {
-  const parsedStory = rawStory.split(" ");
-  const processedStory= parsedStory.map((word)=>{
-    //const nounRex =/\[.]/g;
-    //const verbRex =/\[.]/g;
-    //const adjRex =/\[.]/g;
-    const rex = /\[.]/g;
-   // let posRe = rawStory.match(nounRex);
-    //console.log(posRe)
-   // const wordOnly = word.replace(word.match(rex), "")
-   // console.log(wordOnly)
-    let wordsArr=[];
-    if (word.match(rex) == "[n]") {
-      wordsArr.push(` {word : "${word}, pos: "noun"} `) ;
-    } else if(word.match(rex) == "[v]"){
-      wordsArr.push(` {word : "${word}, pos: "verb"} `) ;
-    } else if(word.match(rex) == "[a]") {
-      wordsArr.push(` {word : "${word}, pos: "adjective"} `) ;
-    } else {
-      wordsArr.push(` {word : "${word}"} `) ;
-    }
-  return wordsArr
-  }
+  const storyWords = rawStory.split(" ");
+  // console.log(storyWords) // just checking
+  const rex = /\[(Noun|Verb|Adjective)\]/; // Regular expression to match [n], [v], or [a]
+  const objOfWords = storyWords.map((word) => {
+    //the map function work on each word(element) from the storyWords Array
+    const match = word.match(rex); // match gives an object containing the word(element) that match our rex
+    //console.log(match) just checking
+    const nature = match ? match[1] : undefined; //=> if there is a match, set nature as index1(element2) of the object, if there isn't set it as undefiend
+    const wordOnly = word.replace(rex, "").replace(/[.,\n]/g, ""); // Remove [n], [v], [a] and punctuation and new lines
+    const result = { word: wordOnly, pos: nature }; //result of our paraphrasing
+    if (!result.pos) delete result.pos; //when there is no nature (pos = undefiend)
+    return result;
+  });
 
-  )
-  console.log(processedStory)
+  // console.log(objOfWords); // just testing
 
-  const processedStorypos=parsedStory.map((word)=>{
-    const testNoun =new RegExp(/[n]$/);
-    const testVerb =/"[v]"$/;
-    const testAdj =/"[a]"$/;
-     return word.match(testNoun)
-                             
-  })
-
-  const procesksedStoryPos = processedStorypos.map((word)=>{
-
-
-   })
-   const testNoun =(/[n]$/)
-   const testVerb =/"[v]"$/;
-   const testAdj =/"[a]"$/;
-   const matches = processedStorypos.filter((word) => testNoun.test(word));
-
-  
-//processedStorypos();
-  console.log(parsedStory)
-  console.log(processedStory)
-  console.log(processedStorypos)
-  console.log(matches)
-
-  // Your code here.
-  return {}; // This line is currently wrong :)
+  return objOfWords;
 }
 
-/**
- * All your other JavaScript code goes here, inside the function. Don't worry about
- * the `then` and `async` syntax for now.
- * 
- * You'll want to use the results of parseStory() to display the story on the page.
- */
-getRawStory().then(parseStory).then((processedStory) => {
-  console.log(processedStory);
-});
+// Max Character Per Input Function
+function InputMaxLength() {
+  const inputs = document.querySelectorAll("input");
+
+  inputs.forEach((input) => {
+    input.addEventListener("input", function () {
+      if (input.value.length > 20) {
+        input.value = input.value.substring(0, 20);
+      }
+    });
+  });
+}
+
+// Clear Input Button Function
+function clearInputs() {
+  const inputs = document.querySelectorAll("input");
+
+  inputs.forEach((input) => {
+    input.value = "";
+  });
+}
+const clearButton = document.getElementById("clearButton");
+clearButton.addEventListener("click", clearInputs);
+
+//Enter to move to next button
+
+// Final Form Story
+getRawStory()
+  .then(parseStory)
+  .then((processedStory) => {
+    const madLibsEdit = document.getElementById("madLibsEdit");
+    const madLibsPreview = document.getElementById("madLibsPreview");
+    processedStory.forEach((w) => {
+      let element;
+      let elementPreview;
+      if (w.pos) {
+        element = document.createElement("input");
+        element.setAttribute("placeholder", w.pos);
+        elementPreview = document.createElement("p");
+        elementPreview.id ="elementPreview";
+        elementPreview.style.display = "inline"
+        elementPreview.textContent = w.pos + " ";
+        element.addEventListener("keypress",function(){
+          element.onkeyup = element.onkeypress = function(){
+            elementPreview.innerHTML = element.value + " ";
+          }
+        })
+      } else {
+        element = document.createTextNode(w.word + " ");
+        elementPreview = document.createTextNode(w.word + " ")
+      }
+      madLibsEdit.appendChild(element);
+      madLibsPreview.appendChild(elementPreview)
+
+    });
+  });
