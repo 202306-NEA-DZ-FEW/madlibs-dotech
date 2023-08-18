@@ -78,8 +78,16 @@ getRawStory()
           }
         })
       } else {
-        element = document.createTextNode(w.word + " ");
-        elementPreview = document.createTextNode(w.word + " ")
+      //  element = document.createTextNode(w.word + " ");
+        element = document.createElement("p");
+        element.id ="element";
+        element.style.display = "inline"
+        element.textContent = " " + w.word + " ";
+      //  elementPreview = document.createTextNode(w.word + " ")
+      elementPreview = document.createElement("p");
+      elementPreview.id ="elementPreview";
+      elementPreview.style.display = "inline"
+      elementPreview.textContent = w.word + " ";
       }
       madLibsEdit.appendChild(element);
       madLibsPreview.appendChild(elementPreview)
