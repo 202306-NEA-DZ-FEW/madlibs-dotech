@@ -58,7 +58,7 @@ clearButton.addEventListener("click", clearInputs);
  function hotKeys (){
     const allInputs= document.querySelectorAll(".input");
     console.log(allInputs)
-    for(let i=0;i < allInputs.length;i++){
+    for(let i=0;i < allInputs.length -1;i++){
       allInputs[i].addEventListener("keyup",function(e){
         if(e.keyCode === 13 ){
           console.log(e.keyCode)
