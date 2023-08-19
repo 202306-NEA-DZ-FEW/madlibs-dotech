@@ -1,3 +1,14 @@
+// RE:Codede 202306-NEA-DZ-FEW BootCamp
+// First Group Project: MadLib
+// Theme : Mad Hatter Birthday Party (Inspired From Alice in Wonderland)
+// Team Memeber :
+// Hachem Bouhahdede
+// Zohir kioukiou
+// Halla
+// Youssaf Sergama
+// Katia Ghazali
+// Mounia Belkhir
+
 //Inial Form Story
 function parseStory(rawStory) {
   const storyWords = rawStory.split(" ");
@@ -43,7 +54,28 @@ function clearInputs() {
 const clearButton = document.getElementById("clearButton");
 clearButton.addEventListener("click", clearInputs);
 
+ ////////// Hotkeys Function
+ function hotKeys (){
+    const allInputs= document.querySelectorAll(".input");
+    console.log(allInputs)
+    for(let i=0;i < allInputs.length;i++){
+      allInputs[i].addEventListener("keyup",function(e){
+        if(e.keyCode === 13 ){
+          console.log(e.keyCode)
+         e.preventDefault();
+         if(allInputs[i].nodeName === 'INPUT', i=i+1){
+          console.log(allInputs[i].nodeName)
+          allInputs[i].focus()}
+       }
+       })
+    }
+}
+
+
 //Enter to move to next button
+// Add hotkeys function to Madlibzedit div
+const madLibsEdit = document.getElementById("madLibsEdit");
+madLibsEdit.addEventListener("keydown",hotKeys)
 
 // Final Form Story
 getRawStory()
@@ -57,6 +89,7 @@ getRawStory()
       if (w.pos) {
         element = document.createElement("input");
         element.setAttribute("placeholder", w.pos);
+        element.className="input"
         elementPreview = document.createElement("p");
         elementPreview.id ="elementPreview";
         elementPreview.style.display = "inline"

@@ -76,7 +76,7 @@ button.musicbutton {
   font-size: 2vw; /* Adjust font size for responsiveness */
   margin-top: 3%; /* Adjust top margin for responsiveness */
   background: rgba(0, 0, 0, 0.25);
-  box-shadow: -7.900000095367432px 7.900000095367432px 15px 0px rgba(255, 255, 255, 0.10) inset, 7.900000095367432px -7.900000095367432px 15px 0px rgba(255, 241, 241, 0.10) inset;
+  box-shadow: 8px 8px 15px 0px rgba(255, 255, 255, 0.10) inset, 7.900000095367432px -7.900000095367432px 15px 0px rgba(255, 241, 241, 0.10) inset;
   backdrop-filter: blur(7.5px);
   border: none;
   top: 80%;
