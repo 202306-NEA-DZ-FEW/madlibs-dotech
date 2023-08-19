@@ -57,16 +57,13 @@ clearButton.addEventListener("click", clearInputs);
  ////////// Hotkeys Function
  function hotKeys (){
     const allInputs= document.querySelectorAll(".input");
-    console.log(allInputs)
-    for(let i=0;i < allInputs.length;i++){
+  //  console.log(allInputs)
+    for(let i=0;i < allInputs.length -1;i++){
       allInputs[i].addEventListener("keyup",function(e){
-        if(e.keyCode === 13 ){
-          console.log(e.keyCode)
+        if(e.keyCode === 13,i=i+1 ){
+     //     console.log(e.keyCode)
          e.preventDefault();
-         if(allInputs[i].nodeName === 'INPUT', i=i+1){  
-          console.log(allInputs[i].nodeName)
-          allInputs[i].focus()}
-       } 
+         allInputs[i].focus()}
        })
     }
 }
