@@ -1,78 +1,106 @@
 @import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&family=Josefin+Sans&display=swap');
-body{
-    background-image: linear-gradient(195deg,rgba(236, 101, 35, 0.1384),rgba(65, 83, 201, 1),rgba(29, 28, 28, 1));
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-    overflow: hidden;
-}
-h1{
-    width: 818px;
-    height: 97px;
-    flex-shrink: 0;
-    color: #000;
-    font-family: Jolly Lodger;
-    font-size: 80px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-img{
-    mix-blend-mode: screen;
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-h1,p,button{
-    position: absolute;
 
+body {
+  background-image: linear-gradient(195deg, rgba(223, 79, 7, 0.308), rgba(11, 34, 165, 0.8), rgb(0, 0, 0));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh; /* Use viewport height for full-screen effect */
+  margin: 0; /* Remove default margin for the body */
+  font-size: 16px; /* Set a base font size for responsiveness */
+  text-align: center;
 }
 
 h1 {
-    top: 0%;
+  max-width: 80%; /* Adjust the width for responsiveness */
+  color: #ffffff;
+  font-family: 'Jolly Lodger', sans-serif;
+  font-size: 6vw;
+  top: 10%;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0; /* Reset margin for h1 */
+  padding-top: 3%; /* Adjust the top padding for responsiveness */
 }
-p{
-    color: #000;
-    font-family: Josefin Sans;
-    font-size: 40px;
-    text-align: center;
-    top: 30%;
-    width: 1275px;
-    height: 99px;
-    flex-shrink: 0;
+
+img {
+  opacity: 0.5;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* background-image: url('Images/Background2.png'); */
+  background-size: cover;
+  background-position: center;
+}
+
+
+h1, p, button {
+  position: absolute; /*Change to relative positioning*/
+  z-index: 1;
+  text-align: center; /*Center align the elements*/
 
 }
+
+p {
+  color: #000;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 3vw;
+  margin: 0;
+  padding-top: 5%; /* Adjust the top padding for responsiveness */
+}
+
 button.playbutton{
-    background: rgba(0, 0, 0, 0.25);
-    box-shadow: -7.900000095367432px 7.900000095367432px 15px 0px rgba(255, 255, 255, 0.10) inset, 7.900000095367432px -7.900000095367432px 15px 0px rgba(255, 241, 241, 0.10) inset;
-    backdrop-filter: blur(7.5px);
-    border: none;
-    border-radius: 25px;
-    padding: 8px 25px;
-    color: white;
-    top: 62%;
-    left: 34%;
-    font-size: 20px;
-    font-family: josefin sans;
+  font-size: 2vw; /* Adjust font size for responsiveness */
+  margin-top: 3%; /* Adjust top margin for responsiveness */
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: -7.900000095367432px 7.900000095367432px 15px 0px rgba(255, 255, 255, 0.10) inset, 7.900000095367432px -7.900000095367432px 15px 0px rgba(255, 241, 241, 0.10) inset;
+  backdrop-filter: blur(7.5px);
+  border: none;
+  top: 70%;
+  border-radius: 25px;
+  padding: 8px 25px;
+  color: white;
+  font-size: 20px;
+  font-family: josefin sans;
 }
-button.musicbutton{
-    background: rgba(0, 0, 0, 0.25);
-    box-shadow: -7.900000095367432px 7.900000095367432px 15px 0px rgba(255, 255, 255, 0.10) inset, 7.900000095367432px -7.900000095367432px 15px 0px rgba(255, 241, 241, 0.10) inset;
-    backdrop-filter: blur(7.5px);
-    border: none;
-    border-radius: 25px;
-    padding: 8px 25px;
-    color: white;
-    top: 62%;
-    right: 36%;
-    font-size: 20px;
-    font-family: josefin sans;
+button.musicbutton {
+  /* Your existing button styles */
+  font-size: 2vw; /* Adjust font size for responsiveness */
+  margin-top: 3%; /* Adjust top margin for responsiveness */
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: -7.900000095367432px 7.900000095367432px 15px 0px rgba(255, 255, 255, 0.10) inset, 7.900000095367432px -7.900000095367432px 15px 0px rgba(255, 241, 241, 0.10) inset;
+  backdrop-filter: blur(7.5px);
+  border: none;
+  top: 80%;
+  border-radius: 25px;
+  padding: 8px 25px;
+  color: white;
+  font-size: 20px;
+  font-family: josefin sans;
 }
-button:hover{
-    background:  rgba(0, 0, 0, 0.425);
-    cursor: pointer;
+
+button:hover {
+  background: rgba(138, 17, 17, 0.425);
+  cursor: pointer;
 }
+
+/* Media Query for Small Screens */
+@media (max-width: 745px) {
+    h1 {
+      font-size: 8vw; /* Adjust font size for small screens */
+    }
+
+    p {
+      font-size: 3vw; /* Adjust font size for small screens */
+    }
+
+    button.playbutton,
+    button.musicbutton {
+      font-size: 3vw; /* Adjust font size for small screens */
+    }
+  }
