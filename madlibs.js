@@ -72,9 +72,15 @@ getRawStory()
         elementPreview.id ="elementPreview";
         elementPreview.style.display = "inline"
         elementPreview.textContent = `(${ w.pos}) `;
-        element.addEventListener("keypress",function(){
-          element.onkeyup = element.onkeypress = function(){
-            elementPreview.innerHTML = element.value + " ";
+        element.addEventListener("keypress",function(e){
+          if(e.keyCode === 13 && element.textContent == " " ){
+            elementPreview.textContent = `(${ w.pos}) `;
+          } else {
+
+            element.onkeyup = element.onkeypress = function(){git 
+              elementPreview.innerHTML = element.value + " ";
+          }
+
           }
         })
       } else {
