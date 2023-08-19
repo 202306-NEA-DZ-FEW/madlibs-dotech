@@ -13,7 +13,7 @@
 function parseStory(rawStory) {
   const storyWords = rawStory.split(" ");
   // console.log(storyWords) // just checking
-  const rex = /\[(n|v|a)\]/; // Regular expression to match [n], [v], or [a]
+  const rex = /\[(Noun|Verb|Adjective)\]/; // Regular expression to match [n], [v], or [a]
   const objOfWords = storyWords.map((word) => {
     //the map function work on each word(element) from the storyWords Array
     const match = word.match(rex); // match gives an object containing the word(element) that match our rex
@@ -29,57 +29,6 @@ function parseStory(rawStory) {
 
   return objOfWords;
 }
-
-/* 2. HOTKEYS : JUMPING TO NEXT INPUT WHEN 'ENTER' :
-document.addEventListener('keydown', event => { // adds an event listener to the whole document, waiting for a key to be pressed(works with input, textarea nad summary)
-  if (event.key === 'Enter' && event.target.classList.contains('madLibsEdit')) { // 2 conditions : the key pressed is enter and the class of the element has the class : madLibInput
-    const currentIndex = parseInt(event.target.getAttribute('data-index'));  // takes the 'data-index' attribute from the input that called the event(where we are typing) and using parseInt it transforms into a string
-    const nextInput = document.querySelector(`[data-index="${currentIndex + 1}"]`); // it searches fot the input in the next position 
-    if (nextInput) {
-      nextInput.focus(); //if the next input exists(we are not in the last input), it focuses on it.
-    }
-  }``
-});    
-*/  
-
-document.addEventListener('keydown', event => {
-  if (event.key === 'Enter' && event.target.classList.contains('madLibsEdit')) {
-    const currentIndex = parseInt(event.target.getAttribute('data-index'));
-
-    // Look for the next input by incrementing the index
-    const nextInput = document.querySelector(`[data-index="${currentIndex + 1}"]`);
-
-    if (nextInput) {
-      // Add a small delay to ensure that the next input receives focus properly
-      setTimeout(() => {
-        nextInput.focus();
-      }, 10);
-    }
-
-    // Prevent the default Enter key behavior (e.g., submitting forms)
-    event.preventDefault();
-  }
-});
-
-document.addEventListener('keydown', event => {
-  console.log('Key pressed:', event.key);
-  if (event.key === 'Enter' && event.target.classList.contains('madLibsEdit')) {
-    const currentIndex = parseInt(event.target.getAttribute('data-index'));
-    console.log('Current Index:', currentIndex);
-
-    const nextInput = document.querySelector(`[data-index="${currentIndex + 1}"]`);
-    console.log('Next Input:', nextInput);
-
-    if (nextInput) {
-      setTimeout(() => {
-        nextInput.focus();
-      }, 10);
-    }
-
-    event.preventDefault();
-  }
-});
-
 
 // Max Character Per Input Function
 function InputMaxLength() {
@@ -105,23 +54,66 @@ function clearInputs() {
 const clearButton = document.getElementById("clearButton");
 clearButton.addEventListener("click", clearInputs);
 
+ ////////// Hotkeys Function
+ function hotKeys() {
+  const allInputs = document.querySelectorAll(".input");
+
+  for (let i = 0; i < allInputs.length; i++) {
+    allInputs[i].addEventListener("keyup", function (e) {
+      if (e.keyCode === 13) {
+        e.preventDefault();
+        if (allInputs[i].nodeName === 'INPUT' && i < allInputs.length - 1) {
+          allInputs[i + 1].focus();
+        }
+      }
+    });
+  }
+}
+
+
 //Enter to move to next button
+// Add hotkeys function to Madlibzedit div
+const madLibsEdit = document.getElementById("madLibsEdit");
+madLibsEdit.addEventListener("keydown",hotKeys)
 
 // Final Form Story
 getRawStory()
   .then(parseStory)
   .then((processedStory) => {
     const madLibsEdit = document.getElementById("madLibsEdit");
-    processedStory.forEach((w, index) => {
+    const madLibsPreview = document.getElementById("madLibsPreview");
+    processedStory.forEach((w) => {
       let element;
+      let elementPreview;
       if (w.pos) {
         element = document.createElement("input");
         element.setAttribute("placeholder", w.pos);
-        element.setAttribute("data-index", index); // Set the data-index attribute
+        element.className = "input";
+        elementPreview = document.createElement("p");
+        elementPreview.id ="elementPreview";
+        elementPreview.style.display = "inline"
+        elementPreview.textContent = `(${ w.pos}) `;
+        element.addEventListener("keypress",function(){
+          element.onkeyup = element.onkeypress = function(){
+            elementPreview.innerHTML = element.value + " ";
+          }
+        })
       } else {
-        element = document.createTextNode(w.word + " ");
+      //  element = document.createTextNode(w.word + " ");
+        element = document.createElement("p");
+        element.id ="element";
+        element.style.display = "inline"
+        element.textContent = " " + w.word + " ";
+      //  elementPreview = document.createTextNode(w.word + " ")
+      elementPreview = document.createElement("p");
+      elementPreview.id ="elementPreview";
+      elementPreview.style.display = "inline"
+      elementPreview.textContent = (w.word) + " ";
       }
-
       madLibsEdit.appendChild(element);
+      madLibsPreview.appendChild(elementPreview)
+
     });
+    hotKeys();
+
   });
