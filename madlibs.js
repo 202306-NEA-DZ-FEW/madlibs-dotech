@@ -54,25 +54,6 @@ function clearInputs() {
 const clearButton = document.getElementById("clearButton");
 clearButton.addEventListener("click", clearInputs);
 
- ////////// Hotkeys Function
- function hotKeys (){
-    const allInputs= document.querySelectorAll(".input");
-  //  console.log(allInputs)
-    for(let i=0;i < allInputs.length -1;i++){
-      allInputs[i].addEventListener("keyup",function(e){
-        if(e.keyCode === 13,i=i+1 ){
-     //     console.log(e.keyCode)
-         e.preventDefault();
-         allInputs[i].focus()}
-       })
-    }
-}
-
-
-//Enter to move to next button
-// Add hotkeys function to Madlibzedit div
-const madLibsEdit = document.getElementById("madLibsEdit");
-madLibsEdit.addEventListener("keydown",hotKeys)
 
 // Final Form Story
 getRawStory()
@@ -115,3 +96,25 @@ getRawStory()
   });
 
 
+ ////////// Hotkeys Function
+  function hotKeys (){
+    const allInputs= document.querySelectorAll(".input");
+//  console.log(allInputs)
+  for(let i=0;i < allInputs.length -1;i++){
+    allInputs[i].addEventListener("keyup",function(e){
+      e.preventDefault();
+      if(e.keyCode === 13, i=i+1 ){
+   //     console.log(e.keyCode)
+       allInputs[i].focus()
+      
+      }
+
+     })
+  }
+}
+
+
+//Enter to move to next button
+// Add hotkeys function to Madlibzedit div
+const madLibsEdit = document.getElementById("madLibsEdit");
+madLibsEdit.addEventListener("keydown",hotKeys)
