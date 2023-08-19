@@ -54,6 +54,28 @@ function clearInputs() {
 const clearButton = document.getElementById("clearButton");
 clearButton.addEventListener("click", clearInputs);
 
+ ////////// Hotkeys Function
+ function hotKeys (){
+    const allInputs= document.querySelectorAll(".input");
+    console.log(allInputs)
+    for(let i=0;i < allInputs.length -1;i++){
+      allInputs[i].addEventListener("keyup",function(e){
+        if(e.keyCode === 13 ){
+          console.log(e.keyCode)
+         e.preventDefault();
+         if(allInputs[i].nodeName === 'INPUT', i=i+1){
+          console.log(allInputs[i].nodeName)
+          allInputs[i].focus()}
+       }
+       })
+    }
+}
+
+
+//Enter to move to next button
+// Add hotkeys function to Madlibzedit div
+const madLibsEdit = document.getElementById("madLibsEdit");
+madLibsEdit.addEventListener("keydown",hotKeys)
 
 // Final Form Story
 getRawStory()
@@ -73,11 +95,13 @@ getRawStory()
         elementPreview.style.display = "inline"
         elementPreview.textContent = `(${ w.pos}) `;
         element.addEventListener("keypress",function(e){
-          if(e.keyCode === 13 && element.textContent == " " ){
-            elementPreview.textContent = `(${ w.pos}) `;
+         // e.preventDefault();
+          if(e.key == "Enter" ){
+            console.log(e.key)
+            elementPreview.innerHTML = `(${ w.pos}) `;
+            e.preventDefault();
           } else {
-
-            element.onkeyup = element.onkeypress = function(){git 
+            element.onkeyup = element.onkeypress = function(){
               elementPreview.innerHTML = element.value + " ";
           }
 
@@ -100,27 +124,3 @@ getRawStory()
 
     });
   });
-
-
- ////////// Hotkeys Function
-  function hotKeys (){
-    const allInputs= document.querySelectorAll(".input");
-//  console.log(allInputs)
-  for(let i=0;i < allInputs.length -1;i++){
-    allInputs[i].addEventListener("keyup",function(e){
-      e.preventDefault();
-      if(e.keyCode === 13, i=i+1 ){
-   //     console.log(e.keyCode)
-       allInputs[i].focus()
-      
-      }
-
-     })
-  }
-}
-
-
-//Enter to move to next button
-// Add hotkeys function to Madlibzedit div
-const madLibsEdit = document.getElementById("madLibsEdit");
-madLibsEdit.addEventListener("keydown",hotKeys)
