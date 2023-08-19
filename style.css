@@ -70,11 +70,13 @@ footer {
   margin: 40px;
   padding: 5%;
 }
-.btn{
+.btn{ 
+  display: inline;
+  width: 10px;
   margin-block: 3px;
   padding: 1%;
   font-family: josefin-sans;
-    border-radius: 5px;
+  border-radius: 5px;
   border-color: olive;
   background-color: olivedrab;
 box-shadow: 0 0 5px olive, 0 0 25px olive;
@@ -86,14 +88,15 @@ box-shadow: 0 0 5px olive, 0 0 25px olive;
 }
 
 
-.madLibsEdit input {
+#madLibsEdit input {
   display: inline;
-  width: 100%;
+  width: 20%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
 
 .madLibsPreview p {
   margin-bottom: 10px;
