@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&family=Josefin+Sans&display=swap');
-
 body {
   background-image: linear-gradient(195deg, rgba(223, 79, 7, 0.308), rgba(11, 34, 165, 0.8), rgb(0, 0, 0));
   background-repeat: no-repeat;
@@ -43,7 +42,11 @@ h1, p, button {
   position: absolute; /*Change to relative positioning*/
   z-index: 1;
   text-align: center; /*Center align the elements*/
-
+}
+img {
+  mix-blend-mode: screen;
+  max-height: 100%; /* Responsive image height */
+  width: 100%; /* Ensure the image scales proportionally */
 }
 
 p {
@@ -90,7 +93,7 @@ button:hover {
 }
 
 /* Media Query for Small Screens */
-@media (max-width: 745px) {
+@media (max-width: 768px) {
     h1 {
       font-size: 8vw; /* Adjust font size for small screens */
     }
