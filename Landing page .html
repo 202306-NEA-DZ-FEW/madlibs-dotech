@@ -7,11 +7,14 @@
     <title>Dotech's Madlibs</title>
 </head>
 <body>
+    <audio id="audioPlayer" autoplay loop>
+        <source src="../madlibs-dotech/Audio/audio_Alice In Wonderland.mp3" type="audio/mpeg">
+    </audio>
    <img src="../madlibs-dotech/Images/Rectangle 11.png" alt="">
 <h1 class="bg-title" data-aos="slide-down">Welcome to The Mad Hatter Madlibs</h1>
 <p class="bg-text">"Will the Mad Hatter have a happy birthday? Or will his tea party turn into a disaster? You decide! " </p>
-<button class="musicbutton" id="musicButton" type="button"> Music</button>
-<button class="playbutton" id="playButton" type="button">Play</button>
+<button class="musicbutton" id="volumeButton" class="btn" > Mute</button>
+<button onclick="window.location.href='index.html'" class="playbutton" id="playButton" type="button">Play</button>
 <script src="do-not-touch.js"></script>
 <script src="madlibs.js"></script>
 </body>
