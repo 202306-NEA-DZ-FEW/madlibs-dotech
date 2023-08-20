@@ -91,16 +91,14 @@ getRawStory()
         element.setAttribute("placeholder", w.pos);
         element.className="input"
         elementPreview = document.createElement("p");
-        elementPreview.id ="elementPreview";
+        elementPreview.id ="posPreview";
         elementPreview.style.display = "inline"
         elementPreview.textContent = `(${ w.pos}) `;
         element.addEventListener("keypress",function(e){
-         // e.preventDefault();
-          if(e.key == "Enter" ){
+          if(e.key == "Enter" && element.textContent == "") {
             console.log(e.key)
-            elementPreview.innerHTML = `(${ w.pos}) `;
-            e.preventDefault();
-          } else {
+            elementPreview.textContent = `(${ w.pos}) `;
+          }else {
             element.onkeyup = element.onkeypress = function(){
               elementPreview.innerHTML = element.value + " ";
           }
