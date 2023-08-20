@@ -116,31 +116,36 @@ getRawStory()
 
     });
       });
-      const volumeButton = document.getElementById("volumeButton");
+// Get DOM elements
+const volumeButton = document.getElementById("volumeButton");
 const volumeSlider = document.getElementById("volumeSlider");
 const audioPlayer = document.getElementById("audioPlayer");
 
+// Add event listeners
 volumeButton.addEventListener("click", toggleMute);
 volumeSlider.addEventListener("input", adjustVolume);
 
+// Function to toggle mute/unmute
 function toggleMute() {
   if (audioPlayer.muted) {
+    // Unmute audio
     audioPlayer.muted = false;
     volumeButton.innerText = "Mute";
   } else {
+    // Mute audio
     audioPlayer.muted = true;
     volumeButton.innerText = "Unmute";
   }
 }
 
+// Function to adjust volume
 function adjustVolume() {
   const volume = volumeSlider.value / 100;
   audioPlayer.volume = volume;
+  
+  // If audio was muted, unmute it
   if (audioPlayer.muted) {
     audioPlayer.muted = false;
     volumeButton.innerText = "Mute";
   }
 }
-
-
-
