@@ -44,15 +44,15 @@ function InputMaxLength() {
 }
 
 // Clear Input Button Function
-function clearInputs() {
-  const inputs = document.querySelectorAll("input");
+//function clearInputs() {
+ // const inputs = document.querySelectorAll("input");
 
-  inputs.forEach((input) => {
-    input.value = "";
-  });
-}
-const clearButton = document.getElementById("clearButton");
-clearButton.addEventListener("click", clearInputs);
+ // inputs.forEach((input) => {
+ //   input.value = "";
+//});
+//}
+//const clearButton = document.getElementById("clearButton");
+//clearButton.addEventListener("click", clearInputs);
 
  ////////// Hotkeys Function
  function hotKeys (){
@@ -90,6 +90,7 @@ getRawStory()
         element.className="input"
         elementPreview = document.createElement("p");
         elementPreview.id ="posPreview";
+        elementPreview.className=w.pos
         elementPreview.style.display = "inline"
         elementPreview.textContent = `(${ w.pos}) `;
         element.addEventListener("keypress",function(e){
@@ -154,3 +155,27 @@ function adjustVolume() {
     volumeButton.innerText = "Mute";
   }
 }
+// Add Reset function
+const clearButton = document.getElementById("clearButton");
+const clearInputs = function(){
+allInputs = document.querySelectorAll(".input");
+allPos= document.querySelectorAll("#posPreview");
+
+allInputs.forEach(input=>{
+  const inputPlaceholder=input.placeholder
+  console.log(inputPlaceholder)
+  input.value =""
+  input.setAttribute("placeholder", inputPlaceholder);
+});
+
+allPos.forEach(pos=>{
+  const posContent=pos.className ;
+  console.log(posContent)
+  pos.innerText = `(${posContent}) `
+});
+
+}
+
+
+// Add Reset function to the clearbutton
+clearButton.addEventListener("click", clearInputs);
