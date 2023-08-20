@@ -91,7 +91,7 @@ getRawStory()
         element.setAttribute("placeholder", w.pos);
         element.className="input"
         elementPreview = document.createElement("p");
-        elementPreview.id ="elementPreview";
+        elementPreview.id ="posPreview";
         elementPreview.style.display = "inline"
         elementPreview.textContent = `(${ w.pos}) `;
         element.addEventListener("keypress",function(e){
