@@ -89,7 +89,7 @@ getRawStory()
         element.setAttribute("placeholder", w.pos);
         element.className="input"
         elementPreview = document.createElement("p");
-        elementPreview.id ="elementPreview";
+        elementPreview.id ="posPreview";
         elementPreview.style.display = "inline"
         elementPreview.textContent = `(${ w.pos}) `;
         element.addEventListener("keypress",function(e){
@@ -121,4 +121,36 @@ getRawStory()
     });
   });
 
+// Get DOM elements
+const volumeButton = document.getElementById("volumeButton");
+const volumeSlider = document.getElementById("volumeSlider");
+const audioPlayer = document.getElementById("audioPlayer");
 
+// Add event listeners
+volumeButton.addEventListener("click", toggleMute);
+volumeSlider.addEventListener("input", adjustVolume);
+
+// Function to toggle mute/unmute
+function toggleMute() {
+  if (audioPlayer.muted) {
+    // Unmute audio
+    audioPlayer.muted = false;
+    volumeButton.innerText = "Mute";
+  } else {
+    // Mute audio
+    audioPlayer.muted = true;
+    volumeButton.innerText = "Unmute";
+  }
+}
+
+// Function to adjust volume
+function adjustVolume() {
+  const volume = volumeSlider.value / 100;
+  audioPlayer.volume = volume;
+
+  // If audio was muted, unmute it
+  if (audioPlayer.muted) {
+    audioPlayer.muted = false;
+    volumeButton.innerText = "Mute";
+  }
+}

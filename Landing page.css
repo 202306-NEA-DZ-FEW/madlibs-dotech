@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&family=Josefin+Sans&display=swap');
 body {
+  background-image: url(../Images/);
   background-image: linear-gradient(195deg, rgba(223, 79, 7, 0.308), rgba(11, 34, 165, 0.8), rgb(0, 0, 0));
   background-repeat: no-repeat;
   background-attachment: fixed;
