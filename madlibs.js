@@ -19,7 +19,7 @@ function parseStory(rawStory) {
     const match = word.match(rex); // match gives an object containing the word(element) that match our rex
     //console.log(match) just checking
     const nature = match ? match[1] : undefined; //=> if there is a match, set nature as index1(element2) of the object, if there isn't set it as undefiend
-    const wordOnly = word.replace(rex, "").replace(/[.,\n]/g, ""); // Remove [n], [v], [a] and punctuation and new lines
+    const wordOnly = word.replace(rex, "").replace(/[\n]/g, ""); // Remove [n], [v], [a] and punctuation and new lines
     const result = { word: wordOnly, pos: nature }; //result of our paraphrasing
     if (!result.pos) delete result.pos; //when there is no nature (pos = undefiend)
     return result;
@@ -43,18 +43,7 @@ function InputMaxLength() {
   });
 }
 
-// Clear Input Button Function
-//function clearInputs() {
- // const inputs = document.querySelectorAll("input");
-
- // inputs.forEach((input) => {
- //   input.value = "";
-//});
-//}
-//const clearButton = document.getElementById("clearButton");
-//clearButton.addEventListener("click", clearInputs);
-
- ////////// Hotkeys Function
+ // Hotkeys Function
  function hotKeys (){
     const allInputs= document.querySelectorAll(".input");
     console.log(allInputs)
@@ -70,7 +59,6 @@ function InputMaxLength() {
        })
     }
 }
-//Enter to move to next button
 // Add hotkeys function to Madlibzedit div
 const madLibsEdit = document.getElementById("madLibsEdit");
 madLibsEdit.addEventListener("keydown",hotKeys)
