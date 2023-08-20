@@ -44,15 +44,15 @@ function InputMaxLength() {
 }
 
 // Clear Input Button Function
-function clearInputs() {
-  const inputs = document.querySelectorAll("input");
+//function clearInputs() {
+ // const inputs = document.querySelectorAll("input");
 
-  inputs.forEach((input) => {
-    input.value = "";
-  });
-}
-const clearButton = document.getElementById("clearButton");
-clearButton.addEventListener("click", clearInputs);
+ // inputs.forEach((input) => {
+ //   input.value = "";
+//});
+//}
+//const clearButton = document.getElementById("clearButton");
+//clearButton.addEventListener("click", clearInputs);
 
  ////////// Hotkeys Function
  function hotKeys (){
@@ -70,8 +70,6 @@ clearButton.addEventListener("click", clearInputs);
        })
     }
 }
-
-
 //Enter to move to next button
 // Add hotkeys function to Madlibzedit div
 const madLibsEdit = document.getElementById("madLibsEdit");
@@ -92,6 +90,7 @@ getRawStory()
         element.className="input"
         elementPreview = document.createElement("p");
         elementPreview.id ="posPreview";
+        elementPreview.className=w.pos
         elementPreview.style.display = "inline"
         elementPreview.textContent = `(${ w.pos}) `;
         element.addEventListener("keypress",function(e){
@@ -122,3 +121,68 @@ getRawStory()
 
     });
   });
+
+// Get DOM elements
+const volumeButton = document.getElementById("volumeButton");
+const volumeSlider = document.getElementById("volumeSlider");
+const audioPlayer = document.getElementById("audioPlayer");
+
+// Add event listeners
+volumeButton.addEventListener("click", toggleMute);
+volumeSlider.addEventListener("input", adjustVolume);
+
+// Function to toggle mute/unmute
+function toggleMute() {
+  if (audioPlayer.muted) {
+    // Unmute audio
+    audioPlayer.muted = false;
+    volumeButton.innerText = "Mute";
+  } else {
+    // Mute audio
+    audioPlayer.muted = true;
+    volumeButton.innerText = "Unmute";
+  }
+}
+
+// Function to adjust volume
+function adjustVolume() {
+  const volume = volumeSlider.value / 100;
+  audioPlayer.volume = volume;
+
+  // If audio was muted, unmute it
+  if (audioPlayer.muted) {
+    audioPlayer.muted = false;
+    volumeButton.innerText = "Mute";
+  }
+}
+
+
+
+
+
+
+
+// Add Reset function
+const clearButton = document.getElementById("clearButton");
+const clearInputs = function(){
+allInputs = document.querySelectorAll(".input");
+allPos= document.querySelectorAll("#posPreview");
+
+allInputs.forEach(input=>{
+  const inputPlaceholder=input.placeholder
+  console.log(inputPlaceholder)
+  input.value =""
+  input.setAttribute("placeholder", inputPlaceholder);
+});
+
+allPos.forEach(pos=>{
+  const posContent=pos.className ;
+  console.log(posContent)
+  pos.innerText = `(${posContent}) ` 
+});
+
+}
+
+
+// Add Reset function to the clearbutton
+clearButton.addEventListener("click", clearInputs);
