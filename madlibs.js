@@ -70,8 +70,6 @@ clearButton.addEventListener("click", clearInputs);
        })
     }
 }
-
-
 //Enter to move to next button
 // Add hotkeys function to Madlibzedit div
 const madLibsEdit = document.getElementById("madLibsEdit");
