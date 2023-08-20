@@ -94,9 +94,15 @@ getRawStory()
         elementPreview.id ="elementPreview";
         elementPreview.style.display = "inline"
         elementPreview.textContent = `(${ w.pos}) `;
-        element.addEventListener("keypress",function(){
-          element.onkeyup = element.onkeypress = function(){
-            elementPreview.innerHTML = element.value + " ";
+        element.addEventListener("keypress",function(e){
+          if(e.key == "Enter" && element.textContent == "") {
+            console.log(e.key)
+            elementPreview.textContent = `(${ w.pos}) `;
+          }else {
+            element.onkeyup = element.onkeypress = function(){
+              elementPreview.innerHTML = element.value + " ";
+          }
+
           }
         })
       } else {
