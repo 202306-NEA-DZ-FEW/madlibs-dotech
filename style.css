@@ -36,14 +36,14 @@
   font-size: 1rem;
 }
 header{
-    display: flex;
+      display: flex;
     justify-content: center;
+    font-family: jolly lodger;
+    font-size: 2rem;
+    text-shadow: 0px 9px 12px rgba(0,0,0,1);
 
 }
-header img{
-  width: 30%;
 
-}
 .container{
   display: flex;
   flex-wrap: wrap;
@@ -53,8 +53,6 @@ header img{
 .madLibsPreview {
   
   font-size: 1rem;
-  width: 40%;
-  height: 40% ;
   padding: 20px;
   margin: 20px;
   background-color: #473333af;
