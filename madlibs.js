@@ -115,6 +115,32 @@ getRawStory()
       madLibsPreview.appendChild(elementPreview)
 
     });
-  });
+      });
+      const volumeButton = document.getElementById("volumeButton");
+const volumeSlider = document.getElementById("volumeSlider");
+const audioPlayer = document.getElementById("audioPlayer");
+
+volumeButton.addEventListener("click", toggleMute);
+volumeSlider.addEventListener("input", adjustVolume);
+
+function toggleMute() {
+  if (audioPlayer.muted) {
+    audioPlayer.muted = false;
+    volumeButton.innerText = "Mute";
+  } else {
+    audioPlayer.muted = true;
+    volumeButton.innerText = "Unmute";
+  }
+}
+
+function adjustVolume() {
+  const volume = volumeSlider.value / 100;
+  audioPlayer.volume = volume;
+  if (audioPlayer.muted) {
+    audioPlayer.muted = false;
+    volumeButton.innerText = "Mute";
+  }
+}
+
 
 
