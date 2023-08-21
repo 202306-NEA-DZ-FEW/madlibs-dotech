@@ -1,0 +1,71 @@
+@import url('https://fonts.cdnfonts.com/css/jolly-lodger');
+@import url('https://fonts.cdnfonts.com/css/josefin-sans');
+@media (width>= 600px) {
+ body { background-image: url(../madlibs-dotech/Images/Rectangle\ 11.png);
+}}
+body{
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-position: center;
+ display: flex;
+ flex-direction: column;
+ width: 100%;
+ min-height: 100vh;
+ margin-right: auto ;
+ margin-left: auto ;
+ padding-left: 0.5rem;
+ padding-right: 0.5rem;
+ box-sizing: border-box;
+ overflow: hidden;
+  }
+header{
+    display: flex;
+    justify-content: center;
+    font-family: jolly lodger;
+    text-shadow: 0px 9px 10px rgba(0,0,0,1);
+    margin-bottom: 0;
+    text-align: center;
+    margin: 5px;
+    padding: 5%;
+}
+div#container {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ flex-wrap: wrap;
+ height: 10vh;
+ align-content: space-around;
+ justify-content: space-evenly;
+ margin: 5px;
+;
+
+}
+.h1{
+    font-size: 3rem;
+}
+p{
+  background-color: #55404069;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 2;
+}
+
+footer {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ flex-wrap: wrap;
+ height: 10vh;
+ align-content: space-around;
+ justify-content: space-evenly;
+ padding: 5%;
+}
+
+.btn:hover{
+ box-shadow: 0 0 5px rgb(59, 59, 48),
+ 0 0 25px olive, 0 0 50px olive,
+ 0 0 100px olive, 0 0 200px olive ;
+ border: 0;
+}
