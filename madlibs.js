@@ -1,42 +1,156 @@
-/**
- * Complete the implementation of parseStory.
- * 
- * parseStory retrieves the story as a single string from story.txt
- * (I have written this part for you).
- * 
- * In your code, you are required (please read this carefully):
- * - to return a list of objects
- * - each object should definitely have a field, `word`
- * - each object should maybe have a field, `pos` (part of speech)
- * 
- * So for example, the return value of this for the example story.txt
- * will be an object that looks like so (note the comma! periods should
- * be handled in the same way).
- * 
- * Input: "Louis[n] went[v] to the store[n], and it was fun[a]."
- * Output: [
- *  { word: "Louis", pos: "noun" },
- *  { word: "went", pos: "verb", },
- *  { word: "to", },
- *  { word: "the", },
- *  { word: "store", pos: "noun" }
- *  { word: "," }
- *  ....
- * 
- * There are multiple ways to do this, but you may want to use regular expressions.
- * Please go through this lesson: https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/regular-expressions/
- */
+// RE:Codede 202306-NEA-DZ-FEW BootCamp
+// First Group Project: MadLib
+// Theme : Mad Hatter Birthday Party (Inspired From Alice in Wonderland)
+// Team Memeber :
+// Hachem Bouhahdede
+// Zohir kioukiou
+// Halla
+// Youssaf Sergama
+// Katia Ghazali
+// Mounia Belkhir
+
+//Inial Form Story
 function parseStory(rawStory) {
-  // Your code here.
-  return {}; // This line is currently wrong :)
+  const storyWords = rawStory.split(" ");
+  // console.log(storyWords) // just checking
+  const rex = /\[(Noun|Verb|Adjective)\]/; // Regular expression to match [n], [v], or [a]
+  const objOfWords = storyWords.map((word) => {
+    //the map function work on each word(element) from the storyWords Array
+    const match = word.match(rex); // match gives an object containing the word(element) that match our rex
+    //console.log(match) just checking
+    const nature = match ? match[1] : undefined; //=> if there is a match, set nature as index1(element2) of the object, if there isn't set it as undefiend
+    const wordOnly = word.replace(rex, "").replace(/[.,\n]/g, ""); // Remove [n], [v], [a] and punctuation and new lines
+    const result = { word: wordOnly, pos: nature }; //result of our paraphrasing
+    if (!result.pos) delete result.pos; //when there is no nature (pos = undefiend)
+    return result;
+  });
+
+  // console.log(objOfWords); // just testing
+
+  return objOfWords;
 }
 
-/**
- * All your other JavaScript code goes here, inside the function. Don't worry about
- * the `then` and `async` syntax for now.
- * 
- * You'll want to use the results of parseStory() to display the story on the page.
- */
-getRawStory().then(parseStory).then((processedStory) => {
-  console.log(processedStory);
-});
+// Max Character Per Input Function
+function InputMaxLength() {
+  const inputs = document.querySelectorAll("input");
+
+  inputs.forEach((input) => {
+    input.addEventListener("input", function () {
+      if (input.value.length > 20) {
+        input.value = input.value.substring(0, 20);
+      }
+    });
+  });
+}
+
+// Clear Input Button Function
+function clearInputs() {
+  const inputs = document.querySelectorAll("input");
+
+  inputs.forEach((input) => {
+    input.value = "";
+  });
+}
+const clearButton = document.getElementById("clearButton");
+clearButton.addEventListener("click", clearInputs);
+
+ ////////// Hotkeys Function
+ function hotKeys (){
+    const allInputs= document.querySelectorAll(".input");
+    console.log(allInputs)
+    for(let i=0;i < allInputs.length -1;i++){
+      allInputs[i].addEventListener("keyup",function(e){
+        if(e.keyCode === 13 ){
+          console.log(e.keyCode)
+         e.preventDefault();
+         if(allInputs[i].nodeName === 'INPUT', i=i+1){
+          console.log(allInputs[i].nodeName)
+          allInputs[i].focus()}
+       }
+       })
+    }
+}
+//Enter to move to next button
+// Add hotkeys function to Madlibzedit div
+const madLibsEdit = document.getElementById("madLibsEdit");
+madLibsEdit.addEventListener("keydown",hotKeys)
+
+// Final Form Story
+getRawStory()
+  .then(parseStory)
+  .then((processedStory) => {
+    const madLibsEdit = document.getElementById("madLibsEdit");
+    const madLibsPreview = document.getElementById("madLibsPreview");
+    processedStory.forEach((w) => {
+      let element;
+      let elementPreview;
+      if (w.pos) {
+        element = document.createElement("input");
+        element.setAttribute("placeholder", w.pos);
+        element.className="input"
+        elementPreview = document.createElement("p");
+        elementPreview.id ="posPreview";
+        elementPreview.style.display = "inline"
+        elementPreview.textContent = `(${ w.pos}) `;
+        element.addEventListener("keypress",function(e){
+          if(e.key == "Enter" && element.textContent == "") {
+            console.log(e.key)
+            elementPreview.textContent = `(${ w.pos}) `;
+          }else {
+            element.onkeyup = element.onkeypress = function(){
+              elementPreview.innerHTML = element.value + " ";
+          }
+
+          }
+        })
+      } else {
+      //  element = document.createTextNode(w.word + " ");
+        element = document.createElement("p");
+        element.id ="element";
+        element.style.display = "inline"
+        element.textContent = " " + w.word + " ";
+      //  elementPreview = document.createTextNode(w.word + " ")
+      elementPreview = document.createElement("p");
+      elementPreview.id ="elementPreview";
+      elementPreview.style.display = "inline"
+      elementPreview.textContent = (w.word) + " ";
+      }
+      madLibsEdit.appendChild(element);
+      madLibsPreview.appendChild(elementPreview)
+
+    });
+  });
+
+// Get DOM elements
+const volumeButton = document.getElementById("volumeButton");
+const volumeSlider = document.getElementById("volumeSlider");
+const audioPlayer = document.getElementById("audioPlayer");
+
+// Add event listeners
+volumeButton.addEventListener("click", toggleMute);
+volumeSlider.addEventListener("input", adjustVolume);
+
+// Function to toggle mute/unmute
+function toggleMute() {
+  if (audioPlayer.muted) {
+    // Unmute audio
+    audioPlayer.muted = false;
+    volumeButton.innerText = "Mute";
+  } else {
+    // Mute audio
+    audioPlayer.muted = true;
+    volumeButton.innerText = "Unmute";
+  }
+}
+
+// Function to adjust volume
+function adjustVolume() {
+  const volume = volumeSlider.value / 100;
+  audioPlayer.volume = volume;
+
+  // If audio was muted, unmute it
+  if (audioPlayer.muted) {
+    audioPlayer.muted = false;
+    volumeButton.innerText = "Mute";
+  }
+}

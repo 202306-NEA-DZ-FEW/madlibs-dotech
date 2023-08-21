@@ -1,121 +1,144 @@
 /**
  * Your CSS goes here.
  */
- @import url('https://fonts.cdnfonts.com/css/jolly-lodger');
- @import url('https://fonts.cdnfonts.com/css/josefin-sans');
- 
+ @import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&family=Josefin+Sans:wght@400;600;700&display=swap');
+ *{
+  backdrop-filter: blur(3.5px);
+}
  @media (width>= 600px) {
-  body { background-image: url(https://a.ltrbxd.com/resized/sm/upload/ii/ly/fy/qz/alice-in-wonderland-2010-1200-1200-675-675-crop-000000.jpg?v=d55a54b5a6);
- }}
+  body {
+
+    background-image: linear-gradient(180deg,rgba(236, 101, 35, 0.138),rgba(65, 83, 201, 1),rgba(29, 28, 28, 1));
+    background-repeat: no-repeat;
+    background-attachment: fixed;;
+  }}
  @media (width< 600px) {
-  body { background-image: url(https://e1.pxfuel.com/desktop-wallpaper/131/965/desktop-wallpaper-johnny-depp-alice-through-the-looking-glass-1080x1920-johnny-depp-iphone-thumbnail.jpg);
- }}
+.madLibsEdit.madLibsPreview {
+    font-size: 1rem;
+    width:  70%;
+}
 
+}
 
+*{
+  backdrop-filter: blur(3.5px);
+}
  body{
-  /*background-image: url(https://a.ltrbxd.com/resized/sm/upload/ii/ly/fy/qz/alice-in-wonderland-2010-1200-1200-675-675-crop-000000.jpg?v=d55a54b5a6);
-  */
+  background-image: url(https://a.ltrbxd.com/resized/sm/upload/ii/ly/fy/qz/alice-in-wonderland-2010-1200-1200-675-675-crop-000000.jpg?v=d55a54b5a6);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr auto ;
   width: 100%;
-  min-height: 100vh;
-  margin-right: auto ;
-  margin-left: auto ;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  height: 100%;
+  margin: 0;
   box-sizing: border-box;
-   }
+  font-size: 1rem;
+}
 header{
-  font-size: 3rem;
-  text-align: center;
-  font-family: jolly Lodger;
-  margin: 40px;
-  padding: 5%;
+    display: flex;
+    justify-content: center;
+    font-family: jolly lodger;
+    font-size: 2rem;
+    text-shadow: 0px 9px 10px rgba(0,0,0,1);
+    margin-bottom: 0;
 }
-
- div#container {
+s{
+  font-size: 3.5rem;
+  text-decoration-color: rgb(141, 12, 12);
+  text-decoration-style:wavy ;
+}
+.container{
   display: flex;
-  flex-direction: row;
-  align-items: center;
   flex-wrap: wrap;
-  height: 10vh;
-  align-content: space-around;
-  justify-content: space-evenly;
-  margin: 40px;
-  padding: 5%;
+  justify-content: center;
 }
-
-
 .madLibsEdit,
 .madLibsPreview {
-  width: 40%;
-  height: 400p ;
+  width: auto;
+  height: auto ;
   padding: 20px;
-  margin-bottom: 20px;
-  background-color: rgba(63, 6, 6, 0.685);
-  border-radius: 5px;
+  margin: 20px;
+  background-color: #473333af;
+  border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  line-height: 1.8;
+  font-weight: 600;
 }
 footer {
   display: flex;
-  flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
   height: 10vh;
   align-content: space-around;
   justify-content: space-evenly;
-  margin: 40px;
-  padding: 5%;
+  margin-bottom: 10px;
+  padding: 0px;
 }
+
 .btn{
-  margin-block: 3px;
-  padding: 1%;
+  padding: 8px 25px;
   font-family: josefin-sans;
-    border-radius: 5px;
-  border-color: olive;
-  background-color: olivedrab;
-box-shadow: 0 0 5px olive, 0 0 25px olive;
+  border-radius: 25px;
+  border: none;
+  color: #ffffff;
+  background: rgb(31, 25, 25);
+  box-shadow: -7.900000095367432px 7.900000095367432px 15px 0px rgba(255, 255, 255, 0.10) inset, 7.900000095367432px -7.900000095367432px 15px 0px rgba(255, 241, 241, 0.10) inset;
+  backdrop-filter: blur(7.5px);
+  font-size: 1.2rem;
+  margin-bottom:15px
 }
 .btn:hover{
-  box-shadow: 0 0 5px olive,
-  0 0 25px olive, 0 0 50px olive,
-  0 0 100px olive, 0 0 200px olive ;
+  background: rgba(0, 0, 0, 0.596);
+  box-shadow: 0px 0px 52px 15px rgba(0,0,0,0.63);-webkit-box-shadow: 0px 0px 52px 15px rgba(0,0,0,0.63);-moz-box-shadow: 0px 0px 52px 15px rgba(0,0,0,0.63);
+  color: #ffffff;
 }
 
-/*
-.madLibsEdit input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
+input,p {
+  font-family: josefin sans;
+  font-size: 1rem;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.11);
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.356);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #9999995b;
+}
+#volumeSlider {
   border-radius: 5px;
+  width: 8%;
+
+
 }
+input{
+  /* Reduce the size of the input element */
+  width: 50px;
+  height: 5px;
+  padding: 8px 25px;
+  font-family: josefin-sans;
+  border-radius: 5px;
+  border: none;
+  color: #e90000;
+  background: rgb(230, 216, 216);
+  box-shadow: -7.900000095367432px 7.900000095367432px 15px 0px rgba(255, 255, 255, 0.10) inset, 7.900000095367432px -7.900000095367432px 15px 0px rgba(255, 241, 241, 0.10) inset;
 
-.madLibsPreview p {
-  margin-bottom: 10px;
 }
-
-.madLibsEdit input:focus {
-  outline: none;
-  border-color: #5c7cfa;
-  box-shadow: 0 0 5px rgba(92, 124, 250, 0.5);
-}
-
-.madLibsEdit input.filled {
-  background-color: #f2f2f2;
-}
-
-.madLibsEdit input.empty {
-  background-color: #fff;
-}
-
-
-
-  .madLibsEdit,
-  .madLibsPreview {
-    width: 40%;
-  }
+#posPreview{
+  color:rgba(17, 255, 156, 0.74);
 }
