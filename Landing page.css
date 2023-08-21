@@ -1,78 +1,92 @@
 @import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&family=Josefin+Sans&display=swap');
-body{
-    background-image: linear-gradient(195deg,rgba(236, 101, 35, 0.1384),rgba(65, 83, 201, 1),rgba(29, 28, 28, 1));
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-    overflow: hidden;
-}
-h1{
-    width: 818px;
-    height: 97px;
-    flex-shrink: 0;
-    color: #000;
-    font-family: Jolly Lodger;
-    font-size: 80px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-img{
-    mix-blend-mode: screen;
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-h1,p,button{
-    position: absolute;
 
+body {
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh; /* Use viewport height for full-screen effect */
+  margin: 0; /* Remove default margin for the body */
+  padding: 0;
+  font-size: 16px; /* Set a base font size for responsiveness */
+  text-align: center;
+  overflow: hidden  ;
 }
-
 h1 {
-    top: 0%;
+  max-width: 80%; /* Adjust the width for responsiveness */
+  color: #000000;
+  font-family: 'Jolly Lodger', sans-serif;
+  font-size: 4.2rem;
+  top: 10%;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0; /* Reset margin for h1 */
+  padding-top: 3%; /* Adjust the top padding for responsiveness */
 }
-p{
-    color: #000;
-    font-family: Josefin Sans;
-    font-size: 40px;
-    text-align: center;
-    top: 30%;
-    width: 1275px;
-    height: 99px;
-    flex-shrink: 0;
+h1, p, button {
+  position: absolute; /*Change to relative positioning*/
+  z-index: 1;
+  text-align: center; /*Center align the elements*/
+}
+p {
+  max-width: 1300px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #000;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 2rem;
+  margin: 0;
+  background-color:  #473333af;
+  border-radius: 20px;
+}
 
-}
 button.playbutton{
-    background: rgba(0, 0, 0, 0.25);
-    box-shadow: -7.900000095367432px 7.900000095367432px 15px 0px rgba(255, 255, 255, 0.10) inset, 7.900000095367432px -7.900000095367432px 15px 0px rgba(255, 241, 241, 0.10) inset;
-    backdrop-filter: blur(7.5px);
-    border: none;
-    border-radius: 25px;
-    padding: 8px 25px;
-    color: white;
-    top: 62%;
-    left: 34%;
-    font-size: 20px;
-    font-family: josefin sans;
+  margin-top: 3%; /* Adjust top margin for responsiveness */
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: -7.900000095367432px 7.900000095367432px 15px 0px rgba(255, 255, 255, 0.10) inset, 7.900000095367432px -7.900000095367432px 15px 0px rgba(255, 241, 241, 0.10) inset;
+  backdrop-filter: blur(7.5px);
+  border: none;
+  top: 70%;
+  border-radius: 25px;
+  padding: 8px 25px;
+  color: white;
+  font-size: 1.5rem;
+  font-family: josefin sans;
 }
-button.musicbutton{
-    background: rgba(0, 0, 0, 0.25);
-    box-shadow: -7.900000095367432px 7.900000095367432px 15px 0px rgba(255, 255, 255, 0.10) inset, 7.900000095367432px -7.900000095367432px 15px 0px rgba(255, 241, 241, 0.10) inset;
-    backdrop-filter: blur(7.5px);
-    border: none;
-    border-radius: 25px;
-    padding: 8px 25px;
-    color: white;
-    top: 62%;
-    right: 36%;
-    font-size: 20px;
-    font-family: josefin sans;
+button.musicbutton {
+  /* Your existing button styles */
+  margin-top: 3%; /* Adjust top margin for responsiveness */
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(7.5px);
+  border: none;
+  top: 80%;
+  border-radius: 25px;
+  padding: 8px 25px;
+  color: white;
+  font-size: 1.5rem;
+  font-family: josefin sans;
 }
-button:hover{
-    background:  rgba(0, 0, 0, 0.425);
-    cursor: pointer;
+
+button:hover {
+  background: rgba(138, 17, 17, 0.425);
+  cursor: pointer;
 }
+
+/* Media Query for Small Screens */
+@media (width<= 600px) {
+    h1 {
+      font-size: 3rem; /* Adjust font size for small screens */
+    }
+
+    p {
+      font-size: 2.2rem; /* Adjust font size for small screens */
+    }
+
+    button.playbutton,
+    button.musicbutton {
+      font-size: 2rem; /* Adjust font size for small screens */
+    }
+  }
