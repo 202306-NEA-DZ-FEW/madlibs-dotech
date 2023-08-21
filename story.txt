@@ -1,7 +1,7 @@
 
-Today is the Mad Hatter’s birthday, and he is throwing a [Adjective] tea party for his friends. He has
-invited the March Hare, the Dormouse, decorated his hat with [Adjective] Alice, and the [Noun]. He has
- prepared a lot of [Noun] and [Noun]for them to eat and drink. He has also ribbons and [Noun].
+Today is the Mad Hatter’s birthday, and he is throwing a [Adjective] tea party for his friends . He has
+invited the March Hare, the Dormouse, decorated his hat with [Adjective] ,  Alice and the [Noun] . He has
+ prepared a lot of [Noun] and [Noun]for them to eat and drink. He has also ribbons and [Noun] .
 However, things don’t go as planned. The [Noun] arrives late and brings a [Adjective] gift. The Dormouse
 falls asleep on the [Noun] and spills
 the tea. The March Hare starts a [Noun] fight with Alice. And the Mad Hatter forgets his own name and starts

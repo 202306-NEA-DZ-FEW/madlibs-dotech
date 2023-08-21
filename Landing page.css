@@ -1,92 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&family=Josefin+Sans&display=swap');
+@import url('https://fonts.cdnfonts.com/css/jolly-lodger');
+@import url('https://fonts.cdnfonts.com/css/josefin-sans');
 
-body {
-  background-size: cover;
-  background-attachment: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh; /* Use viewport height for full-screen effect */
-  margin: 0; /* Remove default margin for the body */
-  padding: 0;
-  font-size: 16px; /* Set a base font size for responsiveness */
-  text-align: center;
-  overflow: hidden  ;
-}
-h1 {
-  max-width: 80%; /* Adjust the width for responsiveness */
-  color: #000000;
-  font-family: 'Jolly Lodger', sans-serif;
-  font-size: 4.2rem;
-  top: 10%;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin: 0; /* Reset margin for h1 */
-  padding-top: 3%; /* Adjust the top padding for responsiveness */
-}
-h1, p, button {
-  position: absolute; /*Change to relative positioning*/
-  z-index: 1;
-  text-align: center; /*Center align the elements*/
-}
-p {
-  max-width: 1300px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  color: #000;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 2rem;
-  margin: 0;
-  background-color:  #473333af;
-  border-radius: 20px;
-}
+@media (width>= 600px) {
+ body { background-image: url(../madlibs-dotech/Images/Rectangle\ 11.png);
+}}
 
-button.playbutton{
-  margin-top: 3%; /* Adjust top margin for responsiveness */
-  background: rgba(0, 0, 0, 0.25);
-  box-shadow: -7.900000095367432px 7.900000095367432px 15px 0px rgba(255, 255, 255, 0.10) inset, 7.900000095367432px -7.900000095367432px 15px 0px rgba(255, 241, 241, 0.10) inset;
-  backdrop-filter: blur(7.5px);
-  border: none;
-  top: 70%;
-  border-radius: 25px;
-  padding: 8px 25px;
-  color: white;
-  font-size: 1.5rem;
-  font-family: josefin sans;
-}
-button.musicbutton {
-  /* Your existing button styles */
-  margin-top: 3%; /* Adjust top margin for responsiveness */
-  background: rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(7.5px);
-  border: none;
-  top: 80%;
-  border-radius: 25px;
-  padding: 8px 25px;
-  color: white;
-  font-size: 1.5rem;
-  font-family: josefin sans;
-}
-
-button:hover {
-  background: rgba(138, 17, 17, 0.425);
-  cursor: pointer;
-}
-
-/* Media Query for Small Screens */
-@media (width<= 600px) {
-    h1 {
-      font-size: 3rem; /* Adjust font size for small screens */
-    }
-
-    p {
-      font-size: 2.2rem; /* Adjust font size for small screens */
-    }
-
-    button.playbutton,
-    button.musicbutton {
-      font-size: 2rem; /* Adjust font size for small screens */
-    }
+body{
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-position: center;
+ display: flex;
+ flex-direction: column;
+ width: 100%;
+ min-height: 100vh;
+ margin-right: auto ;
+ margin-left: auto ;
+ padding-left: 0.5rem;
+ padding-right: 0.5rem;
+ box-sizing: border-box;
+ overflow: hidden;
   }
+header{
+    display: flex;
+    justify-content: center;
+    font-family: jolly lodger;
+    text-shadow: 0px 9px 10px rgba(0,0,0,1);
+    margin-bottom: 0;
+    text-align: center;
+    margin: 5px;
+    padding: 5%;
+}
+
+div#container {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ flex-wrap: wrap;
+ height: 10vh;
+ align-content: space-around;
+ justify-content: space-evenly;
+ margin: 5px;
+;
+
+}
+.h1{
+    font-size: 3rem;
+}
+p{
+  background-color: #55404069;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 2;
+}
+
+footer {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ flex-wrap: wrap;
+ height: 10vh;
+ align-content: space-around;
+ justify-content: space-evenly;
+ padding: 5%;
+}
+
+.btn:hover{
+ box-shadow: 0 0 5px rgb(59, 59, 48),
+ 0 0 25px olive, 0 0 50px olive,
+ 0 0 100px olive, 0 0 200px olive ;
+ border: 0;
+}

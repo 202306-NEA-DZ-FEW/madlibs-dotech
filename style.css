@@ -1,7 +1,9 @@
 /**
  * Your CSS goes here.
  */
- @import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&family=Josefin+Sans:wght@400;600;700&display=swap');
+
+ @import url('https://fonts.cdnfonts.com/css/jolly-lodger');
+ @import url('https://fonts.cdnfonts.com/css/josefin-sans');
  *{
   backdrop-filter: blur(3.5px);
 }
@@ -35,14 +37,14 @@
   margin: 0;
   box-sizing: border-box;
   font-size: 1rem;
+  overflow: hidden;
 }
 header{
     display: flex;
     justify-content: center;
     font-family: jolly lodger;
     font-size: 2rem;
-    text-shadow: 0px 9px 10px rgba(0,0,0,1);
-    margin-bottom: 0;
+    text-shadow: 0px 9px 12px rgba(0,0,0,1);
 }
 s{
   font-size: 3.5rem;
@@ -63,12 +65,11 @@ header img{
   width: auto;
   height: auto ;
   padding: 20px;
-  margin: 20px;
+  margin: 15px;
   background-color: #473333af;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   line-height: 1.8;
-  font-weight: 600;
 }
 footer {
   display: flex;
@@ -86,43 +87,23 @@ footer {
   font-family: josefin-sans;
   border-radius: 25px;
   border: none;
-  color: #ffffff;
-  background: rgb(31, 25, 25);
-  box-shadow: -7.900000095367432px 7.900000095367432px 15px 0px rgba(255, 255, 255, 0.10) inset, 7.900000095367432px -7.900000095367432px 15px 0px rgba(255, 241, 241, 0.10) inset;
-  backdrop-filter: blur(7.5px);
+  background-color: rgba(218, 218, 218, 0.596);
+  color: black;
   font-size: 1.2rem;
-  margin-bottom:15px
+  margin-bottom:15px;
+  border: 2px solid #303030;
 }
 .btn:hover{
-  background: rgba(0, 0, 0, 0.596);
-  box-shadow: 0px 0px 52px 15px rgba(0,0,0,0.63);-webkit-box-shadow: 0px 0px 52px 15px rgba(0,0,0,0.63);-moz-box-shadow: 0px 0px 52px 15px rgba(0,0,0,0.63);
-  color: #ffffff;
+  background-color: #303030;
+  color: white;
+ box-shadow: 4px 21px 19px 4px rgba(0,0,0,0.65);
+-webkit-box-shadow: 4px 21px 19px 4px rgba(0,0,0,0.65);
+-moz-box-shadow: 4px 21px 19px 4px rgba(0,0,0,0.65);
 }
 
 input,p {
   font-family: josefin sans;
   font-size: 1rem;
-}
-/* width */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.11);
-
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgba(128, 128, 128, 0.356);
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #9999995b;
 }
 #volumeSlider {
   border-radius: 5px;
@@ -138,11 +119,11 @@ input{
   font-family: josefin-sans;
   border-radius: 5px;
   border: none;
-  color: #e90000;
+  color: #6d0909bb;
   background: rgb(230, 216, 216);
   box-shadow: -7.900000095367432px 7.900000095367432px 15px 0px rgba(255, 255, 255, 0.10) inset, 7.900000095367432px -7.900000095367432px 15px 0px rgba(255, 241, 241, 0.10) inset;
 
 }
 #posPreview{
-  color:rgba(17, 255, 156, 0.74);
+  color:rgba(17, 194, 150, 0.836) ;
 }

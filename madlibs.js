@@ -19,7 +19,7 @@ function parseStory(rawStory) {
     const match = word.match(rex); // match gives an object containing the word(element) that match our rex
     //console.log(match) just checking
     const nature = match ? match[1] : undefined; //=> if there is a match, set nature as index1(element2) of the object, if there isn't set it as undefiend
-    const wordOnly = word.replace(rex, "").replace(/[.,\n]/g, ""); // Remove [n], [v], [a] and punctuation and new lines
+    const wordOnly = word.replace(rex, "").replace(/[\n]/g, ""); // Remove [n], [v], [a] and punctuation and new lines
     const result = { word: wordOnly, pos: nature }; //result of our paraphrasing
     if (!result.pos) delete result.pos; //when there is no nature (pos = undefiend)
     return result;
@@ -143,7 +143,6 @@ function toggleMute() {
     volumeButton.innerText = "Unmute";
   }
 }
-
 // Function to adjust volume
 function adjustVolume() {
   const volume = volumeSlider.value / 100;
@@ -175,7 +174,5 @@ allPos.forEach(pos=>{
 });
 
 }
-
-
 // Add Reset function to the clearbutton
 clearButton.addEventListener("click", clearInputs);
