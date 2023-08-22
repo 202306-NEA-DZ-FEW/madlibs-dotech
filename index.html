@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
     <link href="Landing page.css" rel="stylesheet">
-
     <title>Dotech's Madlibs</title>
-</link>
+<script>
+window.onload = function() {
+  var context = new AudioContext();
+}
+</script>
+</head>
 <body>
   <audio id="audioPlayer" autoplay loop>
-    <source src="Audio/audio_Alice In Wonderland.mp3" type="audio/mpeg">
+    <source src="./Audio/audio_Alice In Wonderland.mp3" type="audio/mpeg">
   </audio>
      <header class="h1">
      Welcome to The Mad Hatter Madlibs
@@ -24,6 +28,47 @@
   <input type="range" id="volumeSlider" class="btn" min="0" max="100">
 </footer>
 <script src="do-not-touch.js"></script>
-<script src="madlibs.js"></script>
+<script>
+// Get DOM elements
+const volumeButton = document.getElementById("volumeButton");
+const volumeSlider = document.getElementById("volumeSlider");
+const audioPlayer = document.getElementById("audioPlayer");
+
+// Add event listeners
+volumeButton.addEventListener("click", toggleMute);
+volumeSlider.addEventListener("input", adjustVolume);
+
+// Function to toggle mute/unmute
+function toggleMute() {
+  if (audioPlayer.muted) {
+    // Unmute audio
+    audioPlayer.muted = false;
+    volumeButton.innerText = "Mute";
+  } else {
+    // Mute audio
+    audioPlayer.muted = true;
+    volumeButton.innerText = "Unmute";
+  }
+}
+
+// Function to adjust volume
+function adjustVolume() {
+  const volume = volumeSlider.value / 100;
+  audioPlayer.volume = volume;
+
+  // If audio was muted, unmute it
+  if (audioPlayer.muted) {
+    audioPlayer.muted = false;
+    volumeButton.innerText = "Mute";
+  }
+}
+
+// Music autoplay onclick
+document.addEventListener('click', musicPlay);
+function musicPlay() {
+    document.getElementById('audioPlayer').play();
+    document.removeEventListener('click', musicPlay);
+}
+</script>
 </body>
 </html>

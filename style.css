@@ -1,10 +1,32 @@
 /**
  * Your CSS goes here.
  */
+
  @import url('https://fonts.cdnfonts.com/css/jolly-lodger');
  @import url('https://fonts.cdnfonts.com/css/josefin-sans');
+ *{
+  backdrop-filter: blur(3.5px);
+}
+ @media (width>= 600px) {
+  body {
+
+    background-image: linear-gradient(180deg,rgba(236, 101, 35, 0.138),rgba(65, 83, 201, 1),rgba(29, 28, 28, 1));
+    background-repeat: no-repeat;
+    background-attachment: fixed;;
+  }}
+ @media (width< 600px) {
+.madLibsEdit.madLibsPreview {
+    font-size: 1rem;
+    width:  70%;
+}
+
+}
+
+*{
+  backdrop-filter: blur(3.5px);
+}
  body{
-  background-image: url(../madlibs-dotech/Images/Rectangle\ 11.png);
+  background-image: url(https://a.ltrbxd.com/resized/sm/upload/ii/ly/fy/qz/alice-in-wonderland-2010-1200-1200-675-675-crop-000000.jpg?v=d55a54b5a6);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -20,7 +42,7 @@
 header{
     display: flex;
     justify-content: center;
-    font-family: 'jolly lodger', sans-serif;
+    font-family: jolly lodger;
     font-size: 2rem;
     text-shadow: 0px 9px 12px rgba(0,0,0,1);
 }
@@ -62,7 +84,7 @@ footer {
 
 .btn{
   padding: 8px 25px;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: josefin-sans;
   border-radius: 25px;
   border: none;
   background-color: rgba(218, 218, 218, 0.596);
@@ -80,7 +102,7 @@ footer {
 }
 
 input,p {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: josefin sans;
   font-size: 1rem;
 }
 #volumeSlider {
@@ -94,7 +116,7 @@ input{
   width: 50px;
   height: 5px;
   padding: 8px 25px;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: josefin-sans;
   border-radius: 5px;
   border: none;
   color: #6d0909bb;
@@ -105,9 +127,108 @@ input{
 #posPreview{
   color:rgba(17, 194, 150, 0.836) ;
 }
-@media (width< 600px) {
-  .madLibsEdit.madLibsPreview {
-      font-size: 1rem;
-      width:  70%;
-  }
-  }
+
+
+/*** css of team section *********************************************/
+
+nav{display: inline;
+  z-index: 9999;
+}
+#mainnav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#mainnav > ul > li {
+    display: inline;
+    padding: 0 6px;
+}
+#mainnav ul li {
+  z-index: 9999;
+    position: relative;
+}
+.header #mainnav > ul > li > a {
+  z-index: 9999;
+
+    line-height: 100px;
+}
+#mainnav > ul > li.home > a {
+  z-index: 9999;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+    color: crimson;
+}
+#mainnav > ul > li > a {
+  z-index: 9999;
+
+    position: relative;
+    display: block;
+    font-family: "Poppins", sans-serif;
+    text-transform: uppercase;
+    color: beige;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 0 15px;
+    font-weight: 600;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+#mainnav ul.submenu {
+    position: absolute;
+    left: 0;
+    top: 150%;
+    width: 300px;
+    text-align: left;
+    background-color: darkolivegreen;
+    z-index: 9999;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+#mainnav ul.submenu li:first-child {
+    border-top: none;
+    z-index: 9999;
+
+}
+#mainnav ul.submenu > li {
+    border-top: 1px solid #333333;
+    z-index: 9999;
+
+}
+#mainnav ul li ul li {
+    margin-left: 0;
+    z-index: 9999;
+
+}
+#mainnav ul.submenu > li > a {
+  z-index: 9999;
+
+    display: block;
+    color:beige;
+    text-decoration: solid;
+    padding: 0 0 0 20px;
+    line-height: 45px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+#mainnav ul li:hover > ul.submenu {
+  z-index: 9999;
+
+    top: 100%;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+    visibility: visible;
+}
